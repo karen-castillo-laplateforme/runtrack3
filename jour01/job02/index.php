@@ -7,10 +7,6 @@
 </head>
 <body>
   <button onclick="myFunction()">Try it</button>
-  <script>
-    function myFunction(){
-      alert("Hello Javascript !");
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
