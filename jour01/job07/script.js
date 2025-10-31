@@ -14,14 +14,22 @@ function jourtravaille(date){
 ];
 
 for (let i = 0; i < joursFeries2020.length; i++) {
-  if(date === joursFeries2020[i]){
-    let newDate = new Date(date);
-    let jour = newDate.getDate();
-    let mois = newDate.getMonth()+1;
-    let annee = newDate.getFullYear();
-    console.log(`Le ${jour} ${mois} ${annee} est un jour férié`);
-  }    
+  const newDate = new Date(date);
+  const jour = newDate.getDay();
+  const jourDuMois = newDate.getDate();
+  const mois = newDate.getMonth()+1;
+  const annee = newDate.getFullYear();
+
+    if(date === joursFeries2020[i]){
+    console.log(`Le ${jourDuMois} ${mois} ${annee} est un jour férié`);
+    }
+    
+    if(jour === 0 || jour === 6){
+      console.log(`Non, le ${jourDuMois} ${mois} ${annee} est un week-end.`);
+    } else {
+      console.log(`Oui, le ${jourDuMois} ${mois} ${annee} est un jour travaillé.`);
+    }
 }
 }
 
-jourtravaille("2020-07-14");
+jourtravaille("2020-07-23");
