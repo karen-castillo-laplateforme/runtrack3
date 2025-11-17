@@ -1,0 +1,28 @@
+body {
+  min-height: 4096px;
+  margin: 0;
+
+}
+
+header{
+  background-color: green;
+  height: 120px;
+}
+
+main{
+  background-color: violet;
+}
+
+/* footer{
+  background-color: pink;
+  height: 120px;
+  position: fixed;
+} */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background-color: pink;
+}
