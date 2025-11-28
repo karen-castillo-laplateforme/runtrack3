@@ -1,0 +1,28 @@
+/* ---------------------------------------------------------------------- */
+/* STYLE PAR DÉFAUT (pour les très grands écrans > 1920px)                */
+/* ---------------------------------------------------------------------- */
+body {
+    background-color: #88c1d0;
+    color: #333;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+@media screen and (max-width: 1279px) {
+    body {
+        background-color: green;
+    }
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1680px) {
+    body {
+        background-color: #275fa0;
+        color: white;
+    }
+}
+
+@media screen and (min-width: 1681px) and (max-width: 1920px) {
+    body {
+        background-color: #ffca4b;
+    }
+}
