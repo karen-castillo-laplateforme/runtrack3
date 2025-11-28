@@ -1,0 +1,26 @@
+.section {
+  background-color: #88c1d0;
+  width: 150px;
+}
+
+body{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+/* Tablette */
+@media screen and (min-width: 768px) and (max-width: 1023px){
+  body {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Smartphone */
+@media screen and (max-width: 767px){
+  body {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
