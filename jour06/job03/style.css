@@ -1,26 +1,123 @@
-.section {
-  background-color: #88c1d0;
-  width: 150px;
+/* -------------------------------------------------- */
+/* STYLES DE BASE (Appliqués à tous les écrans)       */
+/* -------------------------------------------------- */
+
+body {
+    /* Couleur par défaut pour les écrans > 1920px (selon l'exercice précédent) */
+    background-color: #88c1d0; 
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
 }
 
-body{
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+header {
+    background-color: #333;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between; /* Pour séparer le bouton des liens si nécessaire */
+    align-items: center;
 }
 
-/* Tablette */
-@media screen and (min-width: 768px) and (max-width: 1023px){
-  body {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
 }
 
-/* Smartphone */
-@media screen and (max-width: 767px){
-  body {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-  }
+/* Cache le bouton hamburger par défaut (il est visible sur grand écran) */
+.hamburger-btn {
+    display: none; 
+}
+
+/* -------------------------------------------------- */
+/* MEDIA QUERIES pour les tranches de couleurs         */
+/* -------------------------------------------------- */
+
+/* CONSIGNES COULEURS : entre 1680px et 1920px */
+@media screen and (min-width: 1680px) and (max-width: 1920px) {
+    body {
+        background-color: #ffca4b;
+    }
+}
+
+/* CONSIGNES COULEURS : entre 1280px et 1680px */
+@media screen and (min-width: 1280px) and (max-width: 1679px) { /* Ajusté pour éviter le chevauchement avec 1680px */
+    body {
+        background-color: #275fa0;
+    }
+}
+
+/* CONSIGNES COULEURS : inférieure à 1280px */
+@media screen and (max-width: 1279px) {
+    body {
+        background-color: #ffffff;
+    }
+}
+
+/* -------------------------------------------------- */
+/* MEDIA QUERY pour la NAVIGATION MOBILE ( <= 767px)   */
+/* -------------------------------------------------- */
+
+@media screen and (max-width: 767px) {
+    /* 1. Afficher le bouton hamburger */
+    .hamburger-btn {
+        display: flex; /* Affiche le bouton */
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 25px;
+        padding: 0;
+        margin: 0;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 1000;
+    }
+    
+    /* Styles de l'icône du hamburger */
+    .hamburger-btn span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background: white;
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* 2. Cacher les liens par défaut sur mobile */
+    .nav-links {
+        /* Masque les liens */
+        display: none; 
+        
+        /* Positionnement du menu déroulant */
+        position: absolute;
+        top: 45px; /* Décalé sous le header */
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .nav-links a {
+        padding: 10px 0;
+        border-bottom: 1px solid #444;
+        display: block; /* Prend toute la largeur */
+    }
+
+    /* 3. Afficher les liens si la classe 'active' est ajoutée par JS */
+    .nav-links.active {
+        display: flex; /* Affiche les liens lors du clic */
+    }
+    
+    /* Pour que les liens s'affichent en haut de la page sur mobile */
+    header {
+        justify-content: flex-end; /* Met le bouton à droite */
+    }
+    
+    /* Styles pour le contenu de la page */
+    .section {
+        padding: 20px;
+        border-bottom: 1px solid #ccc;
+    }
 }
